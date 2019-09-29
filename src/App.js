@@ -15,9 +15,15 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import { DataProvider } from './contexts';
+import Navigator from './components/navigation/Navigator';
 
 const App = () => (
-  <SafeAreaView>
-    <Text>App</Text>
-  </SafeAreaView>
+  <DataProvider>
+    <SafeAreaView>
+      <Navigator />
+    </SafeAreaView>
+  </DataProvider>
 );
+
+export default App;
