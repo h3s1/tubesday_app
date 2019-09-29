@@ -15,15 +15,12 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import { DataProvider } from './contexts';
 import Navigator from './components/navigation/Navigator';
 
 const App = () => (
-  <DataProvider>
-    <SafeAreaView style={{ flex: 1 }}>
-      <Navigator />
-    </SafeAreaView>
-  </DataProvider>
+  <SafeAreaView style={{ flex: 1 }}>
+    <Navigator />
+  </SafeAreaView>
 );
 
 export default App;
