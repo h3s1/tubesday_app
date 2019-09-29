@@ -9,10 +9,10 @@ const AppNavigator = createStackNavigator({
     screen: HomeScreen,
     navigationOptions: ({ navigation }) => ({
       headerStyle: {
-        backgroundColor: '#26274f',
+        backgroundColor: '#fff',
         borderBottomWidth: 0,
       },
-      headerTintColor: '#fff',
+      headerTintColor: 'black',
       headerTitle: '홈',
       headerForceInset: { top: 'never' },
     }),

@@ -20,7 +20,7 @@ import Navigator from './components/navigation/Navigator';
 
 const App = () => (
   <DataProvider>
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <Navigator />
     </SafeAreaView>
   </DataProvider>
