@@ -7,11 +7,11 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
+import { SafeAreaView, StyleSheet, View, Text, StatusBar } from 'react-native';
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <Text style={styles.text}>TUBESDAY</Text>
       </View>
