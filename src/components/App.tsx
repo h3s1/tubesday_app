@@ -8,12 +8,13 @@
 
 import React from 'react';
 import { SafeAreaView, StyleSheet, View, Text, StatusBar } from 'react-native';
+import List from './List';
 
 const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <Text style={styles.text}>TUBESDAY</Text>
+        <List/>
       </View>
     </SafeAreaView>
   );
