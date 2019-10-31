@@ -13,7 +13,7 @@ const createTestProps = (props: object) => ({
 
 describe('App', () => {
   const props = createTestProps({});
-  const wrapper = shallow<App>(<App {...props} />);
+  const wrapper = shallow(<App {...props} />);
 
   describe('rendering', () => {
     it('should render a <View />', () => {

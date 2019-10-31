@@ -1,5 +1,5 @@
 export interface ISimplePost {
-    id: string;
+    id: string | number;
     title: string;
     video_id: string;
     author: string;

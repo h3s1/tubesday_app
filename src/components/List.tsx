@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, ScrollView } from 'react-native';
 import { IPosts, ISimplePost } from '../shared-interfaces';
 import { tubesdayApi } from '../api';
+import uuidv1 from 'uuid/v1';
 
 const List: React.FC = () => {
   //   const [count, setCount] = React.useState(0);
-  const [posts, setPosts] = React.useState<IPosts | null>(null);
+  const [posts, setPosts] = React.useState();
 
   React.useEffect(() => {
     getPosts();
@@ -13,18 +14,25 @@ const List: React.FC = () => {
 
   const getPosts = async (): Promise<void> => {
     const res = await tubesdayApi.getAllPosts();
-    console.log(res.data);
     setPosts(res.data);
   };
 
-  console.log(posts);
-
   return (
-    <View>
-      {/* <FlatList
+    <View style={{ flex: 1 }}>
+      <FlatList
+        style={{ flex: 1, backgroundColor: 'white' }}
         data={posts}
-        renderItem={({item}: {item: any}) => <View key={item.id}><Text>{item.title}</Text></View>}
-      ></FlatList> */}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item }: {item: any}) => (
+          <View>
+            <Text style={{ color: 'black' }}>{item.title}</Text>
+            <Text>Hi there</Text>
+          </View>
+        )}
+      />
+      {/* <ScrollView>
+        <Text>hi there</Text>
+      </ScrollView> */}
     </View>
   );
 };
