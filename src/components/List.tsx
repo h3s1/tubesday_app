@@ -40,7 +40,7 @@ const List: React.FC = () => {
               style={{ alignSelf: 'stretch', flex: 2 }}
             />
             <View style={{ flex: 1 }}>
-              <Text style={{ color: 'black', fontSize: 24 }}>{item.title}</Text>
+              <Text style={{ color: 'black', fontSize: 22 }}>{item.title}</Text>
               <Text style={{ color: 'black' }}>{item.author}</Text>
             </View>
           </View>
