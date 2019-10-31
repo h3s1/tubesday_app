@@ -8,8 +8,8 @@ import YouTube from 'react-native-youtube';
 const List: React.FC = () => {
   //   const [count, setCount] = React.useState(0);
   const [posts, setPosts] = React.useState();
-  const [isReady, setReady] = React.useState(false);
-  const [status, setStatus] = React.useState();
+  // const [isReady, setReady] = React.useState(false);
+  // const [status, setStatus] = React.useState();
 
   React.useEffect(() => {
     getPosts();
@@ -27,7 +27,7 @@ const List: React.FC = () => {
         data={posts}
         keyExtractor={item => String(item.id)}
         renderItem={({ item }: {item: any}) => (
-          <View style={{ height: 300 }}>
+          <View style={{ height: 400 }}>
             <YouTube
               videoId={item.video_id} // The YouTube video ID
               play={true} // control playback of video with true/false
@@ -37,7 +37,7 @@ const List: React.FC = () => {
               // onChangeState={e => this.setState({ status: e.state })}
               // onChangeQuality={e => this.setState({ quality: e.quality })}
               // onError={e => setStatus({ error: e.error })}
-              style={{ alignSelf: 'stretch', flex: 6 }}
+              style={{ alignSelf: 'stretch', flex: 2 }}
             />
             <View style={{ flex: 1 }}>
               <Text style={{ color: 'black', fontSize: 24 }}>{item.title}</Text>
