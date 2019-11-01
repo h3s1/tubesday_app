@@ -14,7 +14,7 @@ const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <List/>
+        <List />
       </View>
     </SafeAreaView>
   );
@@ -23,7 +23,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25365d',
+    // backgroundColor: '#25365d',
   },
   text: {
     color: 'white',
