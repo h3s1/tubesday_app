@@ -19,6 +19,7 @@
     "react": "16.9.0",
     "react-native": "0.61.2",
     "react-native-youtube": "^2.0.0",
+    "react-navigation": "^4.0.10",
     "typescript": "^3.6.4",
     "uuid": "^3.3.3"
   },
