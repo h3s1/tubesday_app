@@ -1,18 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Animated } from 'react-native';
 
 interface IProps {
-  style: {flex: number};
+  style: {opacity: any};
 }
 
 const Header: React.FC<IProps> = props => {
   return (
-    <View
-      {...props.style}
+    <Animated.View
       style={{
-        backgroundColor: 'red',
         justifyContent: 'center',
         alignItems: 'center',
+        flex: 1,
+        backgroundColor: 'red',
+        opacity: props.style.opacity || 1,
       }}>
       <Text
         style={{
@@ -23,7 +24,7 @@ const Header: React.FC<IProps> = props => {
         }}>
         TUBESDAY
       </Text>
-    </View>
+    </Animated.View>
   );
 };
 
