@@ -1,8 +1,11 @@
 import React from 'react';
 import { View, Text, Animated } from 'react-native';
+import { withNavigation } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 
 interface IProps {
   style: {opacity: any};
+  navigation: any;
 }
 
 const Header: React.FC<IProps> = props => {
@@ -16,6 +19,7 @@ const Header: React.FC<IProps> = props => {
         opacity: props.style.opacity || 1,
       }}>
       <Text
+        onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}
         style={{
           fontSize: 24,
           color: 'white',
@@ -28,4 +32,4 @@ const Header: React.FC<IProps> = props => {
   );
 };
 
-export default Header;
+export default withNavigation(Header);
