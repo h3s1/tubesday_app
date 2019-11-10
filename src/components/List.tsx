@@ -108,35 +108,7 @@ const List: React.FC = () => {
         {posts ? renderVideoList() : null}
       </ScrollView>
 
-      {/* <View style={styles.wrapper}>
-        <FlatList
-          // style={{ flex: 8, backgroundColor: 'white' }}
-          data={posts}
-          keyExtractor={item => String(item.id)}
-          renderItem={({ item }: {item: any}) => (
-            <View style={{ height: 400 }}>
-              <YouTube
-                videoId={item.video_id} // The YouTube video ID
-                play={false} // control playback of video with true/false
-                fullscreen={true} // control whether the video should play in fullscreen or inline
-                loop={true} // control whether the video should loop when ended
-                // onReady={e => setReady(true)}
-                // onChangeState={e => this.setState({ status: e.state })}
-                // onChangeQuality={e => this.setState({ quality: e.quality })}
-                // onError={e => setStatus({ error: e.error })}
-                style={{ alignSelf: 'stretch', flex: 2 }}
-              />
-              <View style={{ flex: 1 }}>
-                <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.author}>{item.author}</Text>
-              </View>
-            </View>
-          )}
-        />
-      </View> */}
-      {/* <ScrollView>
-        <Text>hi there</Text>
-      </ScrollView> */}
+   
     </View>
   );
 };
