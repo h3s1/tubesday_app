@@ -3,14 +3,14 @@ import {Dimensions} from "react-native"
 import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import List from "../components/List"
+import ListScreen from "../screens/ListScreen"
 
 const { width, height } = Dimensions.get("window");
 
 
 const HomeStack = createStackNavigator({
     List: {
-        screen: List,
+        screen: ListScreen,
         navigationOptions: ({navigation}) => ({header:null})
     }
 })
