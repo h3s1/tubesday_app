@@ -10,10 +10,20 @@ import {
   Animated,
   Dimensions,
 } from 'react-native';
+import { GetPostAction } from '../actions/types';
 import { IPosts, ISimplePost } from '../shared-interfaces';
+import { getPosts } from '../actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { AppState } from '../actions/types';
 import { tubesdayApi } from '../api';
 import YouTube from 'react-native-youtube';
 import Header from './Header';
+
+interface IProps {
+  onGetPosts: typeof getPosts;
+  children: React.ReactNode;
+}
 
 interface Styles {
   wrapper: ViewStyle;
@@ -21,11 +31,12 @@ interface Styles {
   author: TextStyle;
   header: ViewStyle;
 }
+
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('screen');
 const HEADER_EXPANDED_HEIGHT = Math.min(60, Math.round(SCREEN_HEIGHT / 10));
 const HEADER_COLLAPSED_HEIGHT = 0;
 
-const List: React.FC = () => {
+const List: React.FC<IProps> = props => {
   //   const [count, setCount] = React.useState(0);
   const [posts, setPosts] = React.useState();
   const [scrollY, setScrollY] = React.useState(new Animated.Value(0));
@@ -54,7 +65,9 @@ const List: React.FC = () => {
 
   const getPosts = async (): Promise<void> => {
     const res = await tubesdayApi.getAllPosts();
-    setPosts(res.data);
+    const posts = res.data;
+    props.onGetPosts(posts);
+    setPosts(posts);
   };
 
   function renderVideoList() {
@@ -80,6 +93,7 @@ const List: React.FC = () => {
       );
     });
   }
+  console.log('log props', props);
 
   return (
     <View style={{ flex: 1 }}>
@@ -107,8 +121,6 @@ const List: React.FC = () => {
         ])}>
         {posts ? renderVideoList() : null}
       </ScrollView>
-
-   
     </View>
   );
 };
@@ -142,4 +154,15 @@ const styles = StyleSheet.create<Styles>({
   },
 });
 
-export default List;
+const mapStateToProps = (state: AppState) => ({
+  posts: state.postList,
+});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  onGetPosts: bindActionCreators(getPosts, dispatch),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(List);
