@@ -9,12 +9,14 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, View, Text, StatusBar } from 'react-native';
 import List from './List';
+import Navigator from '../navigation';
 
 const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
-        <List />
+        {/* <List /> */}
+        <Navigator />
       </View>
     </SafeAreaView>
   );
