@@ -16,5 +16,4 @@ export type PostListState = {
 
 export type AppState = {
     postList: PostListState,
-    // add future state slices here
 }
