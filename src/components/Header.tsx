@@ -30,7 +30,6 @@ const Header: React.FC<IProps> = props => {
           textAlign: 'center',
         }}>
         TUBESDAY
-
       </Text>
       <Text>
         <Icon name="ios-search" size={30} color="white" />
