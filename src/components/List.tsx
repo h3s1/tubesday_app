@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Text,
-  FlatList,
   ScrollView,
   StyleSheet,
   ViewStyle,
@@ -61,13 +60,17 @@ const List: React.FC<IProps> = props => {
 
   React.useEffect(() => {
     getPosts();
-  },              []);
+  }, []);
 
   const getPosts = async (): Promise<void> => {
-    const res = await tubesdayApi.getAllPosts();
-    const posts = res.data;
-    props.onGetPosts(posts);
-    setPosts(posts);
+    try {
+      const res = await tubesdayApi.getAllPosts();
+      const posts = res.data;
+      props.onGetPosts(posts);
+      setPosts(posts);
+    } catch (err) {
+      console.log('Fetch Failed', err)
+    }
   };
 
   function renderVideoList() {
@@ -88,6 +91,7 @@ const List: React.FC<IProps> = props => {
           <View style={{ flex: 1 }}>
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.author}>{item.author}</Text>
+            <Text style={styles.author}>{item.content}</Text>
           </View>
         </View>
       );

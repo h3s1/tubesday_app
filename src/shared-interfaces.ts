@@ -3,6 +3,7 @@ export interface ISimplePost {
     title: string;
     video_id: string;
     author: string;
+    content: string;
 }
 
 export interface IPosts {
