@@ -19,6 +19,7 @@ import { AppState } from '../actions/types';
 import { tubesdayApi } from '../api';
 import YouTube from 'react-native-youtube';
 import Header from './Header';
+import Axios from 'axios';
 
 interface IProps {
   onGetPosts: typeof getPosts;
@@ -61,13 +62,17 @@ const List: React.FC<IProps> = props => {
 
   React.useEffect(() => {
     getPosts();
-  },              []);
+  }, []);
 
   const getPosts = async (): Promise<void> => {
-    const res = await tubesdayApi.getAllPosts();
-    const posts = res.data;
-    props.onGetPosts(posts);
-    setPosts(posts);
+    try {
+      const res = await tubesdayApi.getAllPosts();
+      const posts = res.data;
+      props.onGetPosts(posts);
+      setPosts(posts);
+    } catch (err) {
+      console.log('Fetch Failed', err)
+    }
   };
 
   function renderVideoList() {

@@ -20,9 +20,8 @@ const Header: React.FC<IProps> = props => {
         backgroundColor: 'red',
         opacity: props.style.opacity || 1,
       }}>
-      <Text><Icon name="ios-menu" size={30} color="white" /></Text>
+      <Text onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}><Icon name="ios-menu" size={30} color="white" /></Text>
       <Text
-        onPress={() => props.navigation.dispatch(DrawerActions.openDrawer())}
         style={{
           fontSize: 24,
           color: 'white',
