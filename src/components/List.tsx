@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Text,
-  FlatList,
   ScrollView,
   StyleSheet,
   ViewStyle,
@@ -19,7 +18,6 @@ import { AppState } from '../actions/types';
 import { tubesdayApi } from '../api';
 import YouTube from 'react-native-youtube';
 import Header from './Header';
-import Axios from 'axios';
 
 interface IProps {
   onGetPosts: typeof getPosts;
