@@ -91,6 +91,7 @@ const List: React.FC<IProps> = props => {
           <View style={{ flex: 1 }}>
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.author}>{item.author}</Text>
+            <Text style={styles.author}>{item.content}</Text>
           </View>
         </View>
       );
