@@ -4,6 +4,7 @@ import {createAppContainer, createSwitchNavigator} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack'
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import ListScreen from "../screens/ListScreen"
+import CreatePostScreen from "../screens/CreatePostScreen"
 
 const { width, height } = Dimensions.get("window");
 
@@ -16,7 +17,13 @@ const HomeStack = createStackNavigator({
 })
 
 const Drawer = createDrawerNavigator(
-    {Home: HomeStack}, {
+    {
+        Home: HomeStack,
+        Add: {
+            screen: CreatePostScreen,
+        }
+    }, 
+    {
         initialRouteName: "Home",
     drawerType: "front",
     drawerWidth: Math.floor(width / 3) * 2,
