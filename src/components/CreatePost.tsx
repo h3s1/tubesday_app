@@ -1,6 +1,7 @@
 import React from "react"
-import { View, Text, Button } from "react-native"
+import { View, Text, Button, TextInput } from "react-native"
 import { withNavigation } from "react-navigation";
+import _ from "lodash"
 
 interface IProps {
     children: React.ReactNode;
@@ -8,10 +9,16 @@ interface IProps {
 }
 
 const CreatePost: React.FC<IProps> = props => {
+    const [title, onChangeText] = React.useState()
+    console.log(title)
     return (
-        <View>
+        <View style={{ display: "flex", alignItems: "center" }}>
             <Text>Create Post</Text>
-            <Button title="Back" onPress={() => props.navigation.navigate('Home')} />
+            <TextInput
+                placeholder="제목 검색"
+                onChangeText={text => onChangeText(text)} style={{ width: "90%", marginTop: 50, height: 40, backgroundColor: "#eee", borderRadius: 4 }}></TextInput>
+            <Button title="완료" onPress={() => props.navigation.navigate('Home')} />
+
         </View>
     )
 }
