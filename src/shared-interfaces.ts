@@ -6,9 +6,8 @@ export interface ISimplePost {
     content: string;
 }
 
-export interface IPosts {
-    posts: ISimplePost[]
-}
+export type IPosts =ISimplePost[]
+
 
 export interface GetArticleRes {
     config: Object,

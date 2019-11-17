@@ -7,12 +7,13 @@ export enum POSTS_ACTION_TYPES {
 
 export type GetPostAction = {
     type: string,
-    payload: IPosts
+    payload: ISimplePost[]
 }
 
-export type PostListState = {
+export type PostListState =  {
     posts: ISimplePost[]
 }
+
 
 export type AppState = {
     postList: PostListState,

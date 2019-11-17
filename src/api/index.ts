@@ -1,7 +1,7 @@
 import axios from "axios"
 import {GetArticleRes, GetArticlesRes} from "../shared-interfaces"
 
-const LOCAL_HOST_URL = "http://localhost:3004"
+const LOCAL_HOST_URL = "http://localhost:3000"
 
 const baseApi = axios.create({
     baseURL: LOCAL_HOST_URL,
