@@ -9,7 +9,7 @@ import {
   Animated,
   Dimensions,
 } from 'react-native';
-import { GetPostAction } from '../actions/types';
+import { GetPostAction, PostListState } from '../actions/types';
 import { IPosts, ISimplePost } from '../shared-interfaces';
 import { getPosts } from '../actions';
 import { connect } from 'react-redux';
@@ -18,6 +18,7 @@ import { AppState } from '../actions/types';
 import { tubesdayApi } from '../api';
 import YouTube from 'react-native-youtube';
 import Header from './Header';
+
 
 interface IProps {
   onGetPosts: typeof getPosts;
@@ -76,7 +77,7 @@ const List: React.FC<IProps> = props => {
   function renderVideoList() {
     return posts.map((item: ISimplePost, idx: number) => {
       return (
-        <View style={{ height: 400 }}>
+        <View style={{ height: 400 }} key={idx}>
           <YouTube
             videoId={item.video_id} // The YouTube video ID
             play={false} // control playback of video with true/false
@@ -158,9 +159,12 @@ const styles = StyleSheet.create<Styles>({
   },
 });
 
-const mapStateToProps = (state: AppState) => ({
-  posts: state.postList,
-});
+// const mapStateToProps = (state: PostListState) => ({
+//   posts: state.posts,
+// });
+const mapStateToProps = (state: AppState) => {
+  return { posts: state.postList.posts }
+}
 
 const mapDispatchToProps = (dispatch: any) => ({
   onGetPosts: bindActionCreators(getPosts, dispatch),
